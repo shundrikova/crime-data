@@ -5,7 +5,7 @@ import json
 import matplotlib.pyplot as plt
 import pandas as pd
 from pyodide import create_proxy
-from pyodide.http import pyfetch
+from pyodide.http import pyfetch, open_url
 
 plt.style.use('seaborn-whitegrid')
 
@@ -116,9 +116,9 @@ try:
         option.value = state.get('state_abbr')
         location_select.appendChild(option)
 
-    with open('crime-crimes.json') as file:
-        crime_types = json.load(file)
-        app.crimes = crime_types.get('results', {}).get('items')
+    url_content = open_url('https://github.com/shundrikova/crime-data/blob/main/crime-crimes.json')
+    crime_types = json.load(url_content)
+    app.crimes = crime_types.get('results', {}).get('items')
     crime_select = Element('trend-crime-type').element
     for crime in app.crimes:
         option = document.createElement('option')
