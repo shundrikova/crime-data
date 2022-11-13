@@ -1,6 +1,7 @@
 import asyncio
 import datetime
 import json
+import os
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -9,7 +10,8 @@ from pyodide.http import pyfetch, open_url
 
 plt.style.use('seaborn-whitegrid')
 
-API_KEY = '0ILEgZh78yTcENxO5Yx5PpOzgoBSnZmeUZvkjbB8'
+console.log('os.environ', str(os.environ))
+API_KEY = os.environ.get('API_KEY', '0ILEgZh78yTcENxO5Yx5PpOzgoBSnZmeUZvkjbB8')
 API_URL = 'https://api.usa.gov/crime/fbi/sapi'
 
 crime_mapping = {
