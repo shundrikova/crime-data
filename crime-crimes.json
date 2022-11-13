@@ -1,0 +1,64 @@
+{ "results": {
+  "groups": [
+    {
+      "id": "violent-crime",
+      "text": "Violent crime"
+    },
+    {
+      "id": "property-crime",
+      "text": "Property crime"
+    }
+  ],
+  "items": [
+    {
+      "id": "violent-crime",
+      "text": "All Violent Crimes",
+      "group": "violent-crime"
+    },
+    {
+      "id": "homicide",
+      "text": "Homicide",
+      "group": "violent-crime"
+    },
+    {
+      "id": "rape",
+      "text": "Rape",
+      "group": "violent-crime"
+    },
+    {
+      "id": "robbery",
+      "text": "Robbery",
+      "group": "violent-crime"
+    },
+    {
+      "id": "aggravated-assault",
+      "text": "Aggravated assault",
+      "group": "violent-crime"
+    },
+    {
+      "id": "property-crime",
+      "text": "All Property Crimes",
+      "group": "property-crime"
+    },
+    {
+      "id": "arson",
+      "text": "Arson",
+      "group": "property-crime"
+    },
+    {
+      "id": "burglary",
+      "text": "Burglary",
+      "group": "property-crime"
+    },
+    {
+      "id": "larceny",
+      "text": "Larceny-theft",
+      "group": "property-crime"
+    },
+    {
+      "id": "motor-vehicle-theft",
+      "text": "Motor vehicle theft",
+      "group": "property-crime"
+    }
+  ]
+}}

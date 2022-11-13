@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Crime Data</title>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <link rel='stylesheet' type='text/css' media='screen'
+          href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - matplotlib
+        - pandas
+        - paths:
+            - /crime-crimes.json
+    </py-env>
+</head>
+
+<body class="container">
+<main class="mx-auto mt-8 mb-8 is-flex flex-col items-center">
+    <div class="text-center w-full mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 uppercase tracking-tight">
+            Trend of
+            <span id="trend-crime-type-title">Violent Crime</span>
+            from
+            <span id="trend-crime-from-title">2011</span>
+            to
+            <span id="trend-crime-to-title">2021</span>
+        </h1>
+    </div>
+    <div class="box w-10/12">
+        <div class="tabs is-medium">
+            <ul>
+                <li class="is-active"><a href="#trend">Trend</a></li>
+                <li class="is-hidden"><a href="#details">NIBRS Details</a></li>
+            </ul>
+        </div>
+        <div id="trend" class="tab-content">
+            <div class="is-flex justify-between border-solid border-gray-300 border-b pb-8">
+                <div class="p-4 w-1/4">
+                    <label class="label text-left mt-0 pb-2
+                         border-dashed border-b border-gray-300">
+                        Location
+                    </label>
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select id="trend-location">
+                                    <option value="US" selected>United States</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 w-1/4">
+                    <label class="label text-left mt-0 pb-2
+                         border-dashed border-b border-gray-300">
+                        From
+                    </label>
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select id="trend-from">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 w-1/4">
+                    <label class="label text-left mt-0 pb-2
+                         border-dashed border-b border-gray-300">
+                        To
+                    </label>
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select id="trend-to">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 w-1/4">
+                    <label class="label text-left mt-0 pb-2
+                         border-dashed border-b border-gray-300">
+                        Crime
+                    </label>
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select id="trend-crime-type">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="is-flex flex-col items-center p-4 relative"
+                 style="min-height: 400px;">
+                <h1 class="text-2xl font-bold text-gray-500 tracking-tight mt-4">
+                    Rate of
+                    <span id="trend-crime-type-plot-title">Violent Crime</span>
+                    Offences by Population
+                </h1>
+                <label for="trend-show-values" class="w-full text-right cursor-pointer checkbox mt-4">
+                    <input class="mr-2 cursor-pointer" id="trend-show-values" type="checkbox">
+                    Show Values
+                </label>
+                <div id="trend-spinner" class="smooth spinner custom is-hidden"></div>
+                <div id="trend-mpl"></div>
+            </div>
+        </div>
+        <div id="details" class="tab-content is-hidden"></div>
+    </div>
+</main>
+<py-script src="./main.py"></py-script>
+</body>
+<style>
+    .spinner.smooth.custom::after {
+        border-top: 4px solid rgba(72, 95, 199, 1);
+        border-left: 4px solid rgba(72, 95, 199, 1);
+        border-right: 4px solid rgba(72, 95, 199, 0);
+        -webkit-animation: spinner 0.6s linear infinite;
+        animation: spinner 0.6s linear infinite
+    }
+</style>
+
+</html>
