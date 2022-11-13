@@ -43,7 +43,7 @@ async def fetch_states():
         url=f'{API_URL}/api/states?API_KEY={API_KEY}&size=100',
         method='GET')
     states_data = await response.json()
-    states = states_data.get('results')
+    states = [state for state in states_data.get('results') if state.get('region_code') not in [0, 99]]
     return states
 
 
