@@ -116,7 +116,7 @@ try:
         option.value = state.get('state_abbr')
         location_select.appendChild(option)
 
-    url_content = open_url('https://github.com/shundrikova/crime-data/blob/main/crime-crimes.json')
+    url_content = open_url('https://raw.githubusercontent.com/shundrikova/crime-data/main/crime-crimes.json')
     crime_types = json.load(url_content)
     app.crimes = crime_types.get('results', {}).get('items')
     crime_select = Element('trend-crime-type').element
